@@ -44,9 +44,9 @@ One window for Reviews (book, score, comment):
 - allows the viewing of all the reviews;
 - adding a new review for one of the existing books
 
-BMS-13: Create system arhitecture diagram
+DONE BMS-13: Create system arhitecture diagram
 
-BMS-14: Create database diagram
+DONE BMS-14: Create database diagram
 
 BMS-15: Add Hibernate configuration(pom and utils)
 
