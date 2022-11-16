@@ -21,10 +21,10 @@ import java.util.Properties;
 
         private static final String DATABASE_SHOW_SQL = "true";
 
-        private static final String DATABASE_HBM2DDL_AUTO = "create-drop";
-        //private static final String DATABASE_HBM2DDL_AUTO = "update";
+        //private static final String DATABASE_HBM2DDL_AUTO = "create-drop";
+        private static final String DATABASE_HBM2DDL_AUTO = "update";
 
-        private SessionFactory sessionFactory;
+        private static SessionFactory sessionFactory;
 
         protected abstract void setAnnotatedClasses(Configuration configuration);
 
