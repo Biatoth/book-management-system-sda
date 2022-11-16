@@ -54,7 +54,7 @@ DONE BMS-16: Add Hibernate model
 
 DONE BMS-17: Add generic repositories
 
-BMS-18: Create user menu.
+DONE BMS-18: Create user menu.
 
 
 One window for CRUD operations on Author (firstname, lastname):
