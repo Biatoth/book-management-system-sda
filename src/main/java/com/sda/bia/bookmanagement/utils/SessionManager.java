@@ -6,7 +6,8 @@ import com.sda.bia.bookmanagement.model.Review;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public class SessionManager extends AbstractSessionManager{
+public class SessionManager extends AbstractSessionManager {
+
     private static final SessionManager INSTANCE = new SessionManager();
 
     private SessionManager() {
@@ -20,22 +21,12 @@ public class SessionManager extends AbstractSessionManager{
         INSTANCE.shutdownSessionManager();
     }
 
-    public static void sessionFactory() {
-    }
-
-//    private void shutdownSessionManager() {
-//    }
-
-
-
     @Override
     protected void setAnnotatedClasses(Configuration configuration) {
-        //Hibernate model will be added here
-
+        // Hibernate model will be added here
         configuration.addAnnotatedClass(Author.class);
         configuration.addAnnotatedClass(Book.class);
         configuration.addAnnotatedClass(Review.class);
-
 
     }
 }
