@@ -4,6 +4,7 @@ import com.sda.bia.bookmanagement.utils.SessionManager;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -90,6 +91,11 @@ public class BaseRepositoryImpl<T> implements BaseRepository <T> {
 
     @Override
     public List<T> findAll() {
-        return null;
+        try (Session session = SessionManager.getSessionFactory().openSession()) {
+            return session.createQuery("from " + entityClass.getName(), entityClass).list();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ArrayList<>();
+        }
     }
 }
