@@ -1,6 +1,10 @@
 package com.sda.bia.bookmanagement;
 
+import com.sda.bia.bookmanagement.Controller.AuthorController;
 import com.sda.bia.bookmanagement.menu.UserOption;
+import com.sda.bia.bookmanagement.repository.AuthorRepositoryImpl;
+import com.sda.bia.bookmanagement.service.AuthorServiceImpl;
+import com.sda.bia.bookmanagement.service.exception.InvalidParameterException;
 import com.sda.bia.bookmanagement.utils.SessionManager;
 
 import java.util.Scanner;
@@ -11,16 +15,15 @@ import static org.hibernate.event.spi.EventType.values;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
-
+    public static void main(String[] args) throws InvalidParameterException {
         SessionManager.getSessionFactory();
+        AuthorController authorController = new AuthorController(new AuthorServiceImpl(new AuthorRepositoryImpl()));
         Scanner scanner = new Scanner(System.in);
 
         UserOption userOption;
-
         do {
             UserOption.printAllOptions();
-            System.out.println("Please select an option");
+            System.out.println("Please select an option!");
             try {
                 int numericOption = Integer.parseInt(scanner.nextLine());
                 userOption = UserOption.findUserOption(numericOption);
@@ -28,21 +31,23 @@ public class Main {
                 userOption = UserOption.UNKNOWN;
             }
 
-            switch(userOption){
+            switch (userOption) {
                 case CREATE_AUTHOR:
-                    System.out.println("Not implemented");
+                    authorController.createAuthor();
                     break;
+                case SHOW_ALL_AUTHORS:
+                    authorController.showAllAuthors();
                 case EXIT:
                     System.out.println("Goodbye!");
                     break;
                 case UNKNOWN:
-                    System.out.println("Option Unknown");
+                    System.out.println("Option unknown");
                     break;
                 default:
-                    System.out.println("User option " + userOption + "is not implemented!");
+                    System.out.println("User option " + userOption + " is not implemented");
+                    break;
             }
         } while (userOption != UserOption.EXIT);
         SessionManager.shutDown();
-
     }
 }

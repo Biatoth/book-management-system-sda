@@ -4,6 +4,7 @@ import com.sda.bia.bookmanagement.utils.SessionManager;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import java.util.List;
 import java.util.Optional;
 
 public class BaseRepositoryImpl<T> implements BaseRepository <T> {
@@ -85,5 +86,10 @@ public class BaseRepositoryImpl<T> implements BaseRepository <T> {
             }
         }
 
+    }
+
+    @Override
+    public List<T> findAll() {
+        return null;
     }
 }

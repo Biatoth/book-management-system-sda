@@ -2,7 +2,8 @@ package com.sda.bia.bookmanagement.menu;
 
 public enum UserOption {
     CREATE_AUTHOR(1, "Create author"),
-    EXIT(99,"Exit"),
+    SHOW_ALL_AUTHORS(2, "Display all authors"),
+    EXIT(99, "Exit"),
     UNKNOWN(100, "Unknown option");
 
     private int numericOption;
@@ -13,31 +14,28 @@ public enum UserOption {
         this.displayValue = displayValue;
     }
 
-    public static void printAllOptions() {
-    }
-
-
     public int getNumericOption() {
         return numericOption;
-    }
-
-    public void setNumericOption(int numericOption) {
-        this.numericOption = numericOption;
     }
 
     public String getDisplayValue() {
         return displayValue;
     }
 
-    public void setDisplayValue(String displayValue) {
-        this.displayValue = displayValue;
+    public static void printAllOptions() {
+        for (UserOption value : values()) {
+            if (value != UNKNOWN) {
+                System.out.println(value.getNumericOption() + " - " + value.getDisplayValue());
+            }
+        }
     }
-    public static UserOption findUserOption(int numericValue){
-        for(UserOption value : values()){
-            if(value.getNumericOption() == numericValue){
+
+    public static UserOption findUserOption (int numericValue) {
+        for (UserOption value : values()){
+            if(value.getNumericOption() == numericValue) {
                 return value;
             }
         }
         return UNKNOWN;
-}
+    }
 }
