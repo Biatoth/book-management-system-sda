@@ -71,5 +71,6 @@ public abstract class AbstractSessionManager {
         }
         sessionFactory = null;
     }
+
 }
 

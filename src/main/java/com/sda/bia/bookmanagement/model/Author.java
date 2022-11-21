@@ -13,22 +13,24 @@ public class Author {
     @Column(name = "id")
     private Integer id;
     @Column(name = "first_name")
-    private String firstName;
+    private String firstname;
     @Column(name = "last_name")
-    private String lastName;
+    private String lastname;
 
-    // Not required in the current specification
+    //Not required in the current specifications
+    //@OneToMany(mappedBy = "author")
+    //private List<Book> books;
 
-    //    @OneToMany (mappedBy = "author")
-    //    private List<Book> books;
+    public Author(String firstname, String lastname) {
+        this.firstname = firstname;
+        this.lastname = lastname;
+    }
 
     public Author() {
+
     }
 
-    public Author(String firstName, String lastName) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-    }
+    ;
 
     public Integer getId() {
         return id;
@@ -38,28 +40,28 @@ public class Author {
         this.id = id;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getFirstname() {
+        return firstname;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getLastname() {
+        return lastname;
     }
 
-    public void setLastName(String last_Name) {
-        this.lastName = last_Name;
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
 
     @Override
     public String toString() {
         return "Author{" +
                 "id=" + id +
-                ", firstName='" + firstName + '\'' +
-                ", last_Name='" + lastName + '\'' +
+                ", firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
                 '}';
     }
 }

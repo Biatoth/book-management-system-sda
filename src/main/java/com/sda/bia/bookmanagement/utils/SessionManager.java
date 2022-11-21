@@ -6,6 +6,8 @@ import com.sda.bia.bookmanagement.model.Review;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
+import java.util.TimeZone;
+
 public class SessionManager extends AbstractSessionManager {
 
     private static final SessionManager INSTANCE = new SessionManager();
@@ -29,4 +31,5 @@ public class SessionManager extends AbstractSessionManager {
         configuration.addAnnotatedClass(Review.class);
 
     }
+
 }

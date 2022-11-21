@@ -13,6 +13,8 @@ public interface AuthorService {
 
     void updateAuthor(int authorId, String firstName, String lastName) throws InvalidParameterException, EntityNotFoundException, com.sda.bia.bookmanagement.service.exception.InvalidParameterException;
 
+    void deleteAuthor(int authorId) throws InvalidParameterException, EntityNotFoundException, com.sda.bia.bookmanagement.service.exception.InvalidParameterException;
+
     List<Author> getAllAuthors();
 
 }
